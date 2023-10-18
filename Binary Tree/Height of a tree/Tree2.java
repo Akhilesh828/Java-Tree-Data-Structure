@@ -1,13 +1,5 @@
-/*
-Recursion 
-
-- In this code, we define a TreeNode class to represent the nodes of the binary tree. 
-- The findHeight method takes the root of the binary tree as an argument and recursively calculates the height of the tree. 
-- The height of an empty tree is defined as -1, and the height of a non-empty tree is the maximum of the 
-- heights of its left and right subtrees plus 1.
-
-The main method demonstrates how to create a binary tree and find its height. You can modify the binary tree structure in the main method to test with different trees.
-*/
+import java.util.LinkedList;
+import java.util.Queue;
 
 class TreeNode {
     int data;
@@ -21,17 +13,35 @@ class TreeNode {
     }
 }
 
-public class Tree {
+public class Tree2 {
     /* -------------------------------------------------------------------------- */
     public static int findHeight(TreeNode root) {
         if (root == null) {
-            return 0; // Height of an empty tree is 0.
+            return 0; 
         }
 
-        int leftHeight = findHeight(root.left);
-        int rightHeight = findHeight(root.right);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int height = 0;
 
-        return Math.max(leftHeight, rightHeight) + 1;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+
+            for(int i=0; i<size; i++) {
+                TreeNode temp = queue.poll();
+
+                if (temp.left != null) {
+                    queue.add(temp.left);
+                }
+                if (temp.right != null) {
+                    queue.add(temp.right);
+                }
+
+                
+            }
+            height++;
+        }
+        return height;
     }
     /* -------------------------------------------------------------------------- */
 
