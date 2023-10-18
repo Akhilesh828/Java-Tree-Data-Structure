@@ -1,3 +1,5 @@
+// 2nd Method - without Recursion
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -57,3 +59,19 @@ public class Tree2 {
         System.out.println("Height of the binary tree: " + height);
     }
 }
+
+
+
+/*
+**Time Complexity:** O(N)
+- The time complexity is O(N), where N is the number of nodes in the binary tree.
+- In the worst case, the method visits all nodes in the tree once during the level-order traversal.
+- The time complexity is linear with respect to the number of nodes in the tree.
+
+**Space Complexity:** O(N)
+- The space complexity is determined by the maximum number of nodes at any level of the tree.
+- In the worst case, for a completely unbalanced tree (skewed tree), the space complexity is O(N), where N is the number of nodes.
+- For a balanced tree, the space complexity is O(M), where M is the maximum number of nodes at any level (the widest level).
+
+In summary, the time complexity is O(N), and the space complexity varies from O(N) for completely unbalanced trees to O(M) for balanced trees, where M is typically much smaller than N. This method is efficient and has a smaller space requirement compared to the recursive method when dealing with balanced and unbalanced trees.
+ */
